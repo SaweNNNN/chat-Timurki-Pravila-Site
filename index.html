@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>чат Тимурки — правила</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg1:#0b0d12;
+    --bg2:#121826;
+
+    --text:#ffffff;
+    --muted:#aab3c0;
+
+    --card1:rgba(255,255,255,0.06);
+    --card2:rgba(255,255,255,0.03);
+    --border:rgba(255,255,255,0.12);
+
+    --accent:#ffffff;
+}
+
+.red{
+    --bg1:#0b0b0c;
+    --bg2:#1a0b0b;
+
+    --card1:#0a0a0a;
+    --card2:#1a1a1a;
+
+    --border:rgba(255,60,60,0.25);
+    --accent:#ff3b3b;
+}
+
+.orange{
+    --bg1:#000;
+    --bg2:#000;
+
+    --card1:#0a0a0a;
+    --card2:#151515;
+
+    --border:#ff8c00;
+    --accent:#ff8c00;
+
+    --text:#ff8c00;
+    --muted:#c26b00;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Inter;
+    background:radial-gradient(circle at top,var(--bg2),var(--bg1));
+    color:var(--text);
+}
+
+header{
+    text-align:center;
+    padding:70px 20px 25px;
+}
+
+h1{
+    font-family:Montserrat;
+    font-size:clamp(2.5rem,5vw,4rem);
+    color:var(--accent);
+}
+
+.subtitle{
+    color:var(--muted);
+    margin-top:6px;
+}
+
+.topbar{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:20px;
+}
+
+button{
+    background:rgba(255,255,255,0.06);
+    border:1px solid var(--border);
+    color:var(--text);
+    padding:10px 14px;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+.search{
+    display:flex;
+    justify-content:center;
+    margin-top:15px;
+}
+
+input{
+    width:min(600px,90%);
+    padding:12px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,0.05);
+    color:var(--text);
+    outline:none;
+}
+
+.tabs{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+    margin:25px 0;
+}
+
+.tab{
+    padding:8px 12px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    cursor:pointer;
+    font-size:.9rem;
+}
+
+.tab.active{
+    background:var(--accent);
+    color:#000;
+}
+
+.container{
+    width:min(1000px,92%);
+    margin:auto;
+    padding-bottom:60px;
+}
+
+.card{
+    background:linear-gradient(145deg,var(--card1),var(--card2));
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:12px;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-2px);
+}
+
+.title{
+    font-family:Montserrat;
+    font-size:1.1rem;
+}
+
+.text{
+    color:var(--muted);
+    margin-top:6px;
+    line-height:1.5;
+}
+
+.badge{
+    margin-top:10px;
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:10px;
+    border:1px solid var(--border);
+    font-size:.85rem;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:var(--muted);
+    border-top:1px solid var(--border);
+    font-size:.9rem;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>чат Тимурки</h1>
+<div class="subtitle">официальные правила сообщества</div>
+
+<div class="topbar">
+<button onclick="setTheme('dark')">Тёмная тема (стандарт)</button>
+<button onclick="setTheme('red')">Красная тема</button>
+<button onclick="setTheme('orange')">Оранжевая тема</button>
+</div>
+
+<div class="search">
+<input id="search" oninput="filter()" placeholder="Поиск по правилам...">
+</div>
+
+<div class="tabs">
+<div class="tab active" onclick="setCat('all')">Все</div>
+<div class="tab" onclick="setCat('safe')">Безопасность</div>
+<div class="tab" onclick="setCat('chat')">Чат</div>
+<div class="tab" onclick="setCat('admin')">Админ</div>
+</div>
+</header>
+
+<div class="container">
+
+<!-- 1.0 -->
+<div class="card" data-cat="safe">
+<div class="title">1.0 БАЗА</div>
+<div class="text">Незнание правил не освобождает от ответственности. Все участники и администрация обязаны соблюдать правила.</div>
+<div class="badge">Применяется ко всем</div>
+</div>
+
+<div class="card" data-cat="safe">
+<div class="title">1.1 NSFW контент</div>
+<div class="text">18+, насилие, обнажённые тела и т.д.</div>
+<div class="badge">Бан 7–30 дней</div>
+</div>
+
+<div class="card" data-cat="safe">
+<div class="title">1.2 Угрозы</div>
+<div class="text">Угрозы участникам запрещены.</div>
+<div class="badge">Мут 2-8 ч.</div>
+</div>
+
+<div class="card" data-cat="chat">
+<div class="title">2.1 Спам</div>
+<div class="text">Флуд и капс запрещены.</div>
+<div class="badge">Мут 30 мин.–12 ч.</div>
+</div>
+
+<div class="card" data-cat="chat">
+<div class="title">2.2 Оскорбления</div>
+<div class="text">Токсичность и травля запрещены.</div>
+<div class="badge">Мут 1–24 ч.</div>
+</div>
+
+<div class="card" data-cat="chat">
+<div class="title">2.3 Провокации</div>
+<div class="text">Провокации конфликтов запрещены.</div>
+<div class="badge">Мут 6–72 ч.</div>
+</div>
+
+<div class="card" data-cat="admin">
+<div class="title">2.4 Самозванство</div>
+<div class="text">Запрещено выдавать себя за администрацию.</div>
+<div class="badge">Бан 4–14 дней</div>
+</div>
+
+<div class="card" data-cat="admin">
+<div class="title">2.5 Обход наказаний</div>
+<div class="text">Попытки обхода мутов/банов запрещены.</div>
+<div class="badge">Бан перманентный</div>
+</div>
+
+<div class="card" data-cat="admin">
+<div class="title">2.6 Рейды</div>
+<div class="text">Организация рейдов запрещена.</div>
+<div class="badge">Бан перманентный</div>
+</div>
+
+</div>
+
+<footer>
+© чат Тимурки & SaweN, all rights reserved
+</footer>
+
+<script>
+let currentCat="all";
+
+function setCat(cat){
+currentCat=cat;
+document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+event.target.classList.add("active");
+filter();
+}
+
+function filter(){
+let q=document.getElementById("search").value.toLowerCase();
+
+document.querySelectorAll(".card").forEach(c=>{
+let okCat=currentCat==="all"||c.dataset.cat===currentCat;
+let okSearch=c.innerText.toLowerCase().includes(q);
+c.style.display=(okCat&&okSearch)?"block":"none";
+});
+}
+
+function setTheme(t){
+document.body.className=t==="dark"?"":t;
+localStorage.theme=t;
+}
+
+if(localStorage.theme){
+document.body.className=localStorage.theme;
+}
+</script>
+
+</body>
+</html>
